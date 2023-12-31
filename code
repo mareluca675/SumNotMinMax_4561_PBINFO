@@ -1,0 +1,41 @@
+#include <iostream>
+
+using namespace std;
+
+int main() 
+{
+    long long n, i, a, minim = 1000001, maxim = 0, amaxim = 0, aminim = 0, s = 0;
+
+    cin >> n;
+
+    for(i = 1; i <= n; i ++)
+    {
+        cin >> a;
+        
+        if(a < minim)
+        {
+            minim = a;
+            aminim = 1;
+        }
+        else if(a == minim)
+        {
+            aminim ++;
+        }
+        
+        if(a > maxim)
+        {
+            maxim = a;
+            amaxim = 1;
+        }
+        else if(a == maxim)
+        {
+            amaxim ++;
+        }
+        
+        s += a;
+    }
+    
+    cout << s - amaxim * maxim - aminim * minim;
+
+    return 0;
+}
